@@ -102,6 +102,14 @@
         echo "No se encontraron tareas.";
     }
 
+    // Cerrar sesión
+    if (isset($_POST['salir'])) {
+        header("Location: ../index.php");
+    }
+
+    
+
     $conexion->close();
+
 
     ?>

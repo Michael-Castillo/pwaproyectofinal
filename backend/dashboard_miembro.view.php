@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema gestor de tareas</title>
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/administrador.css">
 </head>
 <body>
     <div class="container">
@@ -12,6 +13,9 @@
             <h1 class="center">Sistema gestor de tareas</h1>
             <h2 class="center">Bienvenido Miembro del equipo</h2>
         </header>
+        <form action="" method="post">
+            <input type="submit" name="salir" value="Cerrar sesión">
+        </form>
     </div>
     <div class="container">
         <?php

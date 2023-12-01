@@ -43,5 +43,9 @@
         echo "No se encontraron tareas.";
     }
 
+    if (isset($_POST['salir'])) {
+        header("Location: ../index.php");
+    }
+
     $conexion->close();
     ?>
