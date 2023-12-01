@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
     // Código del backend del Miembro del equipo
     require_once '../functions.php';
     $config = require '../public/configuracion.php';

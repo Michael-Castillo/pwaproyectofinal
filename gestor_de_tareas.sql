@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2023 a las 18:47:01
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: localhost:3306
+-- Tiempo de generación: 01-12-2023 a las 18:26:57
+-- Versión del servidor: 8.0.35
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `roles` (
-  `rol_id` int(11) NOT NULL,
-  `rol_nombre` varchar(30) NOT NULL
+  `rol_id` int NOT NULL,
+  `rol_nombre` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -48,11 +48,11 @@ INSERT INTO `roles` (`rol_id`, `rol_nombre`) VALUES
 --
 
 CREATE TABLE `tareas` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(50) NOT NULL,
-  `descripcion` varchar(300) DEFAULT NULL,
-  `estado` varchar(10) NOT NULL DEFAULT 'Pendiente',
-  `usuario_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `titulo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `descripcion` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT '0',
+  `usuario_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -62,11 +62,11 @@ CREATE TABLE `tareas` (
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `contrasena` varchar(100) NOT NULL,
-  `rol_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `nombre` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `contrasena` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `rol_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -109,19 +109,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `rol_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
