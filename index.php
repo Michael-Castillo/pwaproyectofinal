@@ -37,7 +37,7 @@
             $usuarioAdmin = mysqli_fetch_assoc($queryAdmin);
   
             $_SESSION['g_usuario_id_activo'] = $usuarioAdmin['id'];
-            $_SESSION['rol'] = $usuarioAdmin['rol'];
+            $_SESSION['rol'] = $usuarioAdmin['rol_id'];
             $_SESSION['email'] = $email;
             $_SESSION['estado_sesion'] = "S";
 
@@ -45,17 +45,17 @@
 
             // --- A continuación decisiones de Acceso por Rol: 1 -> Administrador y 2 -> Gerente de proyecto o 3 -> Miembro del equipo
             
-            if ($usuarioAdmin['rol'] == 1) { // Corregido el operador de comparación
+            if ($_SESSION['rol'] == 1) { // Corregido el operador de comparación
                 // Inicia sesión el administrador
                 header("Location: backend/dashboard_admin.view.php");
                 exit();
-
-            } elseif ($usuarioAdmin['rol'] == 2) { // Corregido el operador de comparación
+            } 
+            if ($_SESSION['rol'] == 2) { // Corregido el operador de comparación
                 // Inicia sesión el gerente de proyecto
                 header("Location: backend/dashboard_gerente.view.php");
                 exit();
-    
-            } else {
+            } 
+            if($_SESSION['rol'] == 3) {
                 // Inicia sesión el miembro del equipo
                 header("Location: backend/dashboard_miembro.view.php");
                 exit();
